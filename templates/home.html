@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link href="{{ url_for('static', filename='home.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='footer.css') }}" rel="stylesheet">
+
+    <!-- ✅ Google Translate CSS style override (optional) -->
+    <style>
+        .goog-te-banner-frame.skiptranslate,
+        .goog-te-gadget-icon {
+            display: none !important;
+            background: white;
+        }
+
+        #google_translate_element {
+            margin-left: 20px;
+            background: white;
+
+        }
+    </style>
+    
+</head>
+
+<body>
+    <div class="bg">
+        <nav>
+            <div class="start">
+                <img src="{{ url_for('static', filename='logo3.png') }}" class="logo" alt="Life Care Logo">
+                <h1 class="lname"><a class="life" href="{{ url_for('home') }}">Life Care</a></h1>
+            </div>
+            <ul>
+                
+                <li><a class="line" href="{{ url_for('home') }}">Home</a></li>
+                <li><a class="line" href="{{ url_for('about') }}">About</a></li>
+                <li><a class="line" href="{{ url_for('contact') }}">Contact</a></li>
+                <li><a class="line" href="{{ url_for('developer') }}">Developer</a></li>
+            </ul>
+
+            <!-- ✅ Google Translate Dropdown -->
+            <div id="google_translate_element"></div>
+
+            <div>
+                <a href="{{ url_for('login') }}" class="login">Logout</a>
+            </div>
+        </nav>
+
+
+        <div class="content">
+            <center>
+                <h1>Health Diagnosis</h1>
+            </center>
+
+            <!-- ✅ Changed action to 'predict' route -->
+            <form action="{{ url_for('predict') }}" method="post" class="search">
+                <i class='bx bx-search-alt-2'></i>
+                <input type="text" name="symptoms" class="sr" placeholder="Enter symptoms, separated by commas"
+                    required>
+                <button type="submit" class="btn">Diagnose</button>
+            </form>
+
+            <!-- Display Prediction Results -->
+           <!-- Display Prediction Results -->
+           {% if predicted_disease %}
+          <div class="main">
+           <div class="result">
+            <h2>Diagnosed: {{ predicted_disease }}</h2>
+        </div> 
+
+           <div class="box">
+                 
+               <div class="resultbt">
+                   <p><strong>Description:</strong> {{ dis_des }}</p>
+               </div>
+               <div class="resultbt">
+                   <p><strong>Precautions:</strong> {{ my_precautions | join(', ') }}</p>
+               </div>
+               <div class="resultbt">
+                   <p><strong>Medications:</strong> {{ medications | join(', ') }}</p>
+               </div>
+               <div class="resultbt">
+                   <p><strong>Recommended Diet:</strong> {{ my_diet | join(', ') }}</p>
+               </div>
+               <div class="resultbt">
+                   <p><strong>Workout Plan:</strong> {{ workout }}</p>
+               </div>
+           
+       </div>
+    </div>
+           {% elif message %}
+           <div class="error">{{ message }}</div>
+           {% endif %}
+
+            <!-- Chatbot Toggle Button -->
+            <button id="chatbot-toggle">💬</button>
+
+            <!-- Chatbot Container -->
+            <div id="chatbot-container">
+                <div class="chat-header">
+                    <img src="{{ url_for('static', filename='chatbot.png') }}" alt="Chatbot Logo" class="bot-logo">
+                    <span id="riddhi">Describe your issue here!</span>
+                    <button id="chatbot-close">✖</button>
+                </div>
+
+                <div class="chat-body">
+                    <div class="chatbot-b">
+                        <span>Hi, how can I help you?</span>
+                        <div class="quick-buttons">
+                            <button class="quick-reply">Tell me your issue</button>
+                            <button class="quick-reply">Medical help</button>
+                            <button class="quick-reply">Disease</button>
+                            <button class="quick-reply">Help</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="chat-footer">
+                    <input type="text" id="chat-input" placeholder="Write a message...">
+                    <button id="send-btn">➤</button>
+                </div>
+            </div>
+        </div>
+
+        <script type="text/javascript">
+            function googleTranslateElementInit() {
+                new google.translate.TranslateElement({
+                    pageLanguage: 'en',
+                    includedLanguages: 'en,hi,es,fr,de,zh-CN,ja,ko,ar,ru,bn,ta,te,ml,gu,mr,pa,ur,tr,it,pt',
+                    layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+                }, 'google_translate_element');
+            }
+        </script>
+
+        <script type="text/javascript"
+            src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit">
+            </script>
+
+        <script>
+            function adjustNavForTranslateBar() {
+                const nav = document.querySelector('nav');
+                const translateBar = document.querySelector('#goog-gt-tt, .goog-te-banner-frame');
+
+                // If the Google Translate frame exists
+                if (translateBar || document.querySelector('.goog-te-banner-frame')) {
+                    nav.style.top = "40px"; // Shift down to avoid overlap
+                } else {
+                    nav.style.top = "0"; // Default position
+                }
+            }
+
+            // Check after a small delay (Translate bar loads after page load)
+            setTimeout(adjustNavForTranslateBar, 1000);
+
+            // Also check if window resizes (in case bar appears later)
+            window.addEventListener('resize', adjustNavForTranslateBar);
+        </script>
+
+
+        <script src="{{ url_for('static', filename='script.js') }}"></script>
+        <!-- Footer Section with Disease Options -->
+
+
+
+</body>
+
+
+</html>

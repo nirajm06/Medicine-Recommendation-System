@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://kit.fontawesome.com/8a3cf6b75e.js" crossorigin="anonymous"></script>
+    <title>Profile Cards</title>
+    <style>
+
+/* CSS */
+.button-56 {
+  align-items: center;
+  
+  background-color: #d19fee;
+  border: 2px solid #111;
+  border-radius: 8px;
+  box-sizing: border-box;
+  color: #111;
+  cursor: pointer;
+  display: flex;
+  font-family: Inter,sans-serif;
+  font-size: 16px;
+  height: 48px;
+  justify-content: center;
+  line-height: 24px;
+  max-width: 100%;
+  padding: 0 25px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.button-56:after {
+  background-color: #111;
+  border-radius: 8px;
+  content: "";
+  display: block;
+  height: 48px;
+  left: 0;
+  width: 100%;
+  position: absolute;
+  top: -2px;
+  transform: translate(8px, 8px);
+  transition: transform .2s ease-out;
+  z-index: -1;
+}
+
+.button-56:hover:after {
+  transform: translate(0, 0);
+}
+
+.button-56:active {
+  /* background-color: #ffdeda; */
+
+  background-color: #dc5ab3;
+  outline: 0;
+}
+
+.button-56:hover {
+  outline: 0;
+}
+
+@media (min-width: 768px) {
+  .button-56 {
+    padding: 0 40px;
+  }
+}
+        /* ////////////////////////////////////////////////////////////////////// */
+      .main_message{
+        margin:20px ;
+      }
+      .message{
+        padding: 6px;
+        background-color: #fff;
+        border-radius: 50%;
+        margin: 10px ;
+      }
+      i{
+        font-size: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #05030b;
+      }
+        .card-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+.card {
+  background: rgb(114, 154, 230);
+  border-radius: 15px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 260px;
+  height: 350px; /* 🔥 Fix card height */
+  text-align: center;
+  padding: 20px;
+  transition: transform 0.3s, height 0.5s ease; /* 🔥 Animate height too */
+  position: relative;
+  overflow: hidden; /* 🔥 Hide overflow initially */
+}
+
+.card:hover {
+  transform: translateY(-10px);
+}
+
+        .card img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 15px;
+        }
+
+        .card h2 {
+            font-size: 1.2em;
+            margin: 10px 0 5px 0;
+        }
+
+        .position {
+            color: rgb(240, 234, 234);
+            font-size: 0.9em;
+        }
+
+        .location {
+            color: lightgray;
+            font-size: 0.8em;
+            margin-bottom: 15px;
+        }
+
+        .more-btn {
+            background-color: #00b894;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 0.9em;
+            transition: background-color 0.3s;
+        }
+
+        .more-btn:hover {
+            background-color: #019875;
+        }
+
+        .more-info {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease;
+            margin-top: 15px;
+            
+            font-weight:bold;
+            color: #333;
+            text-align: left;
+        }
+
+        .more-info.show {
+            max-height: 500px;
+            /* Enough to show full text */
+        }
+
+        @media (max-width: 768px) {
+  .card-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .card {
+    width: 90%; /* Make cards take up more width on mobile */
+    margin-bottom: 20px;
+  }
+      }
+
+      
+
+/* Expanded card: height becomes auto */
+.card.expanded {
+  height: auto;
+}
+
+/* More info content */
+.more-info {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease;
+  margin-top: 15px;
+  font-size: 0.85em;
+  color: #333;
+  text-align: left;
+}
+
+
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        }
+
+        body {
+            width: 100%;
+            min-height: 100vh;
+            background-image: url('/static/bg.png');
+            background-position: center;
+            background-size: cover;
+            overflow-y: auto;
+            /* ✅ Enables vertical scrolling */
+            color: #333;
+            position: relative;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            /* padding: 20px; */
+            text-align: justify;
+        }
+
+
+        nav {
+            width: 100% !important;
+            padding: 1px 6%;
+            background-color: rgba(252, 251, 254, 0.567);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 16px;
+            font-weight: 600;
+        }
+
+        /* nav a:hover {
+            text-shadow: 3px 3px 20px #066400, -2px 1px 30px #fff;
+        } */
+
+        nav ul li {
+            display: inline-block;
+            list-style: none;
+            margin: 10px 15px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 400;
+            cursor: pointer;
+        }
+
+        .start {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .start .logo {
+            width: 70px;
+            padding: 10px;
+        }
+
+        .start .lname {
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            color: rgb(223, 66, 66);
+        }
+
+        
+
+       
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        h1 {
+            color: #2c3e50;
+            margin-top: 20px;
+        }
+
+        section {
+            background: #fff;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+           margin: 1.5rem 90px ;
+        }
+ section:hover {
+  transform: translateY(10px);
+}
+        h2 {
+            color: #34495e;
+            margin-top: 20px;   /* Adds space above */
+            margin-bottom: 10px; /* Adds space below */
+        }
+
+        ul {
+            list-style-type: square;
+            padding-left: 1.5rem;
+        }
+
+        .anch {
+            color: #5c1adf;
+            text-decoration: none;
+        }
+
+        /* a:hover {
+            text-decoration: underline;
+        } */
+        .tech-stack, .tools, .contact{
+            background-color: #acf6e5;
+            
+        }
+
+.tech-stack{
+    margin-top: 20px;
+}
+    </style>
+</head>
+
+<body>
+    <nav>
+        <div class="start">
+            <img src="{{ url_for('static', filename='logo3.png') }}" class="logo" alt="Life Care Logo">
+            <h1 class="lname">Life Care</h1>
+        </div>
+        <ul>
+            <li><a class="button-56" role="button" href="{{ url_for('home') }}">Home</a></li>
+            <li><a class="button-56" role="button" href="{{ url_for('about') }}">About</a></li>
+            <li><a class="button-56" role="button" href="{{ url_for('contact') }}">Contact</a></li>
+            <li><a  class="button-56" role="button" href="{{ url_for('developer') }}">Developer</a></li>
+        </ul>
+        <div>
+           
+        </div>
+    </nav>
+
+    <header>
+        <h1>Meet the Developer</h1>
+    </header>
+    <div class="card-container">
+        <!-- Card 1 -->
+       
+        <div class="card">
+            <img src="{{ url_for('static', filename='member1.jpg') }}" alt="Profile Image">
+            <h2>Harshita Parmar</h2>
+            <p class="position">Backend Developer</p> <br>
+            <p class="location">Ujjain</p>
+            <div class="main_message">
+            <a class="message" href="mailto:"><i class="fa-regular fa-user"></i></a>
+            <a class="message" href="mailto:harshitaparmar1511@gmail.com"><i class="fa-solid fa-envelope"></i></a>
+            <a class="message" href="mailto:"><i class="fa-brands fa-github"></i></a>
+            </div>
+            <button class="more-btn">More</button>
+            <div class="more-info">
+                👋 Hello, I'm Harshita Parmar <br><br>
+                I’m a backend developer with a strong focus on building reliable, secure, and scalable server-side
+                systems. I specialize in developing RESTful APIs, managing databases, and integrating third-party
+                services to power dynamic web applications. With hands-on experience in Python, Flask, MySQL, and cloud
+                platforms, I enjoy optimizing performance and ensuring seamless communication between the frontend and
+                backend. I’m passionate about clean code, automation, and turning complex problems into elegant
+                solutions behind the scenes.
+            </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="card">
+            <img src="{{ url_for('static', filename='member2.png') }}" alt="Profile Image">
+            <h2>Ayushee Gupta</h2>
+            <p class="position">Database Connector Developer</p> <br>
+            <p class="location">Indore</p>
+            <div class="main_message">
+                <a class="message" href="mailto:"><i class="fa-regular fa-user"></i></a>
+                <a class="message" href="mailto:ayushee1906@gmail.com"><i class="fa-solid fa-envelope"></i></a>
+                <a class="message" href="mailto:"><i class="fa-brands fa-github"></i></a>
+                </div>
+            <button class="more-btn">More</button>
+            <div class="more-info">
+                👋 Hello, I'm Ayushee Gupta <br><br>
+                As the Database Connector Developer, I specialize in designing efficient and secure bridges between
+                applications and databases. My work ensures smooth, real-time data flow by implementing optimized SQL
+                queries, connection pooling, and error handling mechanisms. I focus on maintaining data integrity,
+                enhancing performance, and making backend systems scalable and reliable. Whether it's integrating MySQL
+                with Flask, optimizing ORM queries, or managing schema migrations, I aim to deliver robust and
+                maintainable database solutions tailored to the application's needs.
+            </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="card">
+            <img src="profile3.png" alt="Profile Image">
+            <h2>Piyush Patil</h2>
+            <p class="position">Frontend Developer</p><br>
+            <p class="location">Indore</p>
+            <div class="main_message">
+                <a class="message" href="mailto:"><i class="fa-regular fa-user"></i></a>
+                <a class="message" href="mailto:harshitaparmar1511@gmail.com"><i class="fa-solid fa-envelope"></i></a>
+                <a class="message" href="mailto:"><i class="fa-brands fa-github"></i></a>
+                </div>
+            <button class="more-btn">More</button>
+            <div class="more-info">
+                👋 Hello, I'm Piyush Patil <br><br>
+                I’m a frontend developer with a strong passion for creating seamless, responsive, and visually appealing
+                user interfaces. I specialize in turning design concepts into fully functional web experiences using
+                HTML, CSS, JavaScript, and modern frameworks like React. With a keen eye for detail and a user-first
+                mindset, I aim to build websites and applications that are not only beautiful but also intuitive and
+                accessible. My goal is to bridge the gap between design and technology to deliver smooth, engaging
+                digital experiences.
+            </div>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="card">
+            <img src="{{ url_for('static', filename='member4.jpg') }}" alt="Profile Image">
+            <h2>Niraj Mahajan</h2>
+            <p class="position">Chatbot Developer</p> <br>
+            <p class="location">Indore</p>
+            <div class="main_message">
+                <a class="message" href="mailto:"><i class="fa-regular fa-user"></i></a>
+                <a class="message" href="mailto:nirajmahajan51@gmail.com"><i class="fa-solid fa-envelope"></i></a>
+                <a class="message" href="mailto:https://github.com/nirajm06"><i class="fa-brands fa-github"></i></a>
+                </div>
+            <button class="more-btn">More</button>
+            <div class="more-info">
+                👋 Hello, we are Niraj Mahajan  <br><br>
+                We specialize in designing and developing intelligent chatbot systems that enhance user experience and
+                automate interactions. With a strong foundation in natural language processing (NLP), machine learning,
+                and backend integration, we build chatbots that are both conversational and context-aware. From customer
+                support to health assistants, my focus is on creating bots that are reliable, scalable, and easy to
+                integrate into existing platforms. Whether it's a simple FAQ bot or a complex AI-driven assistant, I aim
+                to deliver smart solutions that feel natural and intuitive to users.
+            </div>
+        </div>
+
+        <!-- Card 5 -->
+        <div class="card">
+            <img src="profile5.png" alt="Profile Image"> 
+            <h2>Shivam Jat</h2>
+            <p class="position">Chatbot Developer</p> <br>
+
+            <p class="location">Indore</p>
+            <div class="main_message">
+                <a class="message" href="mailto:"><i class="fa-regular fa-user"></i></a>
+                <a class="message" href="mailto:harshitaparmar1511@gmail.com"><i class="fa-solid fa-envelope"></i></a>
+                <a class="message" href="mailto:"><i class="fa-brands fa-github"></i></a>
+                </div>
+            <button class="more-btn">More</button>
+            <div class="more-info">
+                👋 Hello, we are  Shivam Jat <br><br>
+                We specialize in designing and developing intelligent chatbot systems that enhance user experience and
+                automate interactions. With a strong foundation in natural language processing (NLP), machine learning,
+                and backend integration, we build chatbots that are both conversational and context-aware. From customer
+                support to health assistants, my focus is on creating bots that are reliable, scalable, and easy to
+                integrate into existing platforms. Whether it's a simple FAQ bot or a complex AI-driven assistant, I aim
+                to deliver smart solutions that feel natural and intuitive to users.
+            </div>
+        </div>
+
+    </div>
+    <section class="tech-stack">
+        <h2>🧰 Tech Stack</h2>
+        <ul>
+            <li>Frontend: HTML, CSS, JavaScript</li>
+            <li>Backend: Python, Flask</li>
+            <li>Database: MySQL</li>
+            <li>ML Tools: NumPy,Pandas,SVC,Sklearn,Flask,Pickle,
+                mysql connector
+            </li>
+        </ul>
+    </section>
+
+    <section class="tools">
+        <h2>🔧 Tools I Use</h2>
+        <ul>
+            <li>VS Code</li>
+            <li>Git & GitHub</li>
+        </ul>
+    </section>
+
+    <section class="contact">
+        <h2>📬 Contact Me</h2>
+        <p>Email: <a class="anch" href="mailto:harshitaparmar1511@gmail.com">harshitaparmar1511@gmail.com</a></p>
+        <p>GitHub: <a class="anch" href="https://github.com/yourusername" target="_blank">github.com/purva958</a></p>
+    </section>
+    <script>
+        // When 'More' is clicked, toggle the info visibility
+       // Select all 'More' buttons
+document.querySelectorAll('.more-btn').forEach(button => {
+  button.addEventListener('click', () => {
+    const card = button.closest('.card'); // find the card
+    const info = button.nextElementSibling; // find the more-info
+
+    // Toggle the 'show' class on info
+    info.classList.toggle('show');
+
+    // Toggle 'expanded' class on the card
+    card.classList.toggle('expanded');
+
+    // Optional: Change button text between "More" and "Less"
+    if (button.innerText === "More") {
+      button.innerText = "Less";
+    } else {
+      button.innerText = "More";
+    }
+  });
+});
+
+    </script>
+
+</body>
+
+</html>
+
+
+
+

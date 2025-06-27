@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diagnosis Result</title>
+    <link href="{{ url_for('static', filename='home.css') }}" rel="stylesheet">
+</head>
+
+<body>
+    <div class="bg">
+        <nav>
+            <div class="start">
+                <img src="{{ url_for('static', filename='logo3.png') }}" class="logo" alt="Life Care Logo">
+                <h1 class="lname">Life Care</h1>
+            </div>
+            <ul>
+                <li><a href="{{ url_for('home') }}">Home</a></li>
+                <li><a href="{{ url_for('about') }}">About</a></li>
+                <li><a href="{{ url_for('contact') }}">Contact</a></li>
+                <li><a href="{{ url_for('developer') }}">Developer</a></li>
+            </ul>
+            <div>
+                <a href="{{ url_for('login') }}" class="login">Logout</a>
+            </div>
+        </nav>
+
+        <div class="content">
+            <center>
+                <h1>Diagnosis Result</h1>
+            </center>
+
+            <div class="box">
+                <div class="result">
+                    <h2>Diagnosed: {{ predicted_disease }}</h2>
+                </div>
+                <div class="resultbt">
+                    <p><strong>Description:</strong> {{ dis_des }}</p>
+                </div>
+                <div class="resultbt">
+                    <p><strong>Precautions:</strong> {{ my_precautions | join(', ') }}</p>
+                </div>
+                <div class="resultbt">
+                    <p><strong>Medications:</strong> {{ medications | join(', ') }}</p>
+                </div>
+                <div class="resultbt">
+                    <p><strong>Recommended Diet:</strong> {{ my_diet | join(', ') }}</p>
+                </div>
+                <div class="resultbt">
+                    <p><strong>Workout Plan:</strong> {{ workout }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
