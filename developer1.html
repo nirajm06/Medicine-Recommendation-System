@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Developer Page</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        }
+
+        body {
+            width: 100%;
+            min-height: 100vh;
+            background-image: url('/static/bg.png');
+            background-position: center;
+            background-size: cover;
+            overflow-y: auto;
+            /* ✅ Enables vertical scrolling */
+            color: #333;
+            position: relative;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            text-align: justify;
+        }
+
+
+        nav {
+            width: 100% !important;
+            padding: 1px 6%;
+            background-color: rgba(255, 255, 255, 0.315);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 16px;
+            font-weight: 600;
+        }
+
+        nav a:hover {
+            text-shadow: 3px 3px 20px #066400, -2px 1px 30px #fff;
+        }
+
+        nav ul li {
+            display: inline-block;
+            list-style: none;
+            margin: 10px 15px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 400;
+            cursor: pointer;
+        }
+
+        .start {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .start .logo {
+            width: 70px;
+            padding: 10px;
+        }
+
+        .start .lname {
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            color: rgb(223, 66, 66);
+        }
+
+        .login {
+            display: inline-block;
+            text-decoration: none;
+            padding: 14px 40px;
+            color: #fff;
+            background-image: linear-gradient(45deg, rgb(105, 72, 223), rgb(118, 48, 215));
+            font-size: 14px;
+            border-radius: 30px;
+            transition: 0.5s;
+        }
+
+        .login:hover {
+            background: rgb(80, 105, 250);
+            box-shadow: 0 0 20px;
+            transform: scale(1.1);
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        h1 {
+            color: #2c3e50;
+        }
+
+        section {
+            background: #fff;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            color: #34495e;
+            margin-top: 20px;   /* Adds space above */
+            margin-bottom: 10px; /* Adds space below */
+        }
+
+        ul {
+            list-style-type: square;
+            padding-left: 1.5rem;
+        }
+
+        a {
+            color: #2980b9;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>Meet the Developer</h1>
+        </header>
+
+        <section class="bio">
+            <h2>👋 Hello, I'm Harshita Parmar</h2>
+            <p>I’m a backend developer with a strong focus on building reliable, secure, and scalable server-side
+                systems. I specialize in developing RESTful APIs, managing databases, and integrating third-party
+                services to power dynamic web applications. With hands-on experience in Python, Flask, MySQL, and cloud
+                platforms, I enjoy optimizing performance and ensuring seamless communication between the frontend and
+                backend. I’m passionate about clean code, automation, and turning complex problems into elegant
+                solutions behind the scenes.</p>
+
+            <h2>👋 Hello, I'm Ayushee Gupta</h2>
+            <p>"As the Database Connector Developer, I specialize in designing efficient and secure bridges between
+                applications and databases. My work ensures smooth, real-time data flow by implementing optimized SQL
+                queries, connection pooling, and error handling mechanisms. I focus on maintaining data integrity,
+                enhancing performance, and making backend systems scalable and reliable. Whether it's integrating MySQL
+                with Flask, optimizing ORM queries, or managing schema migrations, I aim to deliver robust and
+                maintainable database solutions tailored to the application's needs."</p>
+
+            <h2>👋 Hello, I'm Piyush Patil</h2>
+            <p>I’m a frontend developer with a strong passion for creating seamless, responsive, and visually appealing
+                user interfaces. I specialize in turning design concepts into fully functional web experiences using
+                HTML, CSS, JavaScript, and modern frameworks like React. With a keen eye for detail and a user-first
+                mindset, I aim to build websites and applications that are not only beautiful but also intuitive and
+                accessible. My goal is to bridge the gap between design and technology to deliver smooth, engaging
+                digital experiences.</p>
+
+            <h2>👋 Hello, we are Niraj Mahajan and Shivam Jat</h2>
+            <p>We specialize in designing and developing intelligent chatbot systems that enhance user experience and
+                automate interactions. With a strong foundation in natural language processing (NLP), machine learning,
+                and backend integration, we build chatbots that are both conversational and context-aware. From customer
+                support to health assistants, my focus is on creating bots that are reliable, scalable, and easy to
+                integrate into existing platforms. Whether it's a simple FAQ bot or a complex AI-driven assistant, I aim
+                to deliver smart solutions that feel natural and intuitive to users.</p>
+        </section>
+
+        <section class="tech-stack">
+            <h2>🧰 Tech Stack</h2>
+            <ul>
+                <li>Frontend: HTML, CSS, JavaScript</li>
+                <li>Backend: Python, Flask</li>
+                <li>Database: MySQL</li>
+                <li>ML Tools: NumPy,Pandas,SVC,Sklearn,Flask,Pickle,
+                    mysql connector
+                </li>
+            </ul>
+        </section>
+
+        <section class="tools">
+            <h2>🔧 Tools I Use</h2>
+            <ul>
+                <li>VS Code</li>
+                <li>Git & GitHub</li>
+            </ul>
+        </section>
+
+        <section class="contact">
+            <h2>📬 Contact Me</h2>
+            <p>Email: <a href="mailto:youremail@example.com">harshitaparmar1511@gmail.com</a></p>
+            <p>GitHub: <a href="https://github.com/yourusername" target="_blank">github.com/purva958</a></p>
+        </section>
+    </div>
+</body>
+
+</html>
